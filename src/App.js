@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import './App.css';
+import General from './components/General';
 
 class App extends React.Component {
   constructor(props){
@@ -14,19 +15,7 @@ class App extends React.Component {
           <h1>CV Creator</h1>
         </div>
         <div className="main">
-          <div className="card general">
-            <form className="genForm" action="">
-              <label for="genFirstName" className="label">First Name:</label>
-              <input id="genFirstName" type="text"/>
-              <label for="genLastName" className="label">Last Name:</label>
-              <input id="genLastName" type="text" />
-              <label for="genEmail">Email:</label>
-              <input id="genEmail" type="text" />
-              <label for="genPhnoe">Phone Number:</label>
-              <input id="genPhone" type="text" />
-              <button>Submit</button>
-            </form>
-          </div>
+          <General />
           <div className="card education">
             Education
           </div>
@@ -38,7 +27,7 @@ class App extends React.Component {
 
 export default App;
 
-//todo basic page layout -header - general -education -experience
+//?basic page layout -header - general -education -experience - DONE
 //--------
 //todo General form name, email, phone number
 //todo General form: add github url --extra
