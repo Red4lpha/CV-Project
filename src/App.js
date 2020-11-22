@@ -31,7 +31,7 @@ export default App;
 //?General form name, email, phone number - DONE
 //todo General form: add github url --extra
 //--------
-//todo Education form: School, Major, Years attended
+//?Education form: School, Major, Years attended
 //--------
 //todo Experience form: Company name, position title, date
 //todo Experience form: Main tasks of job -- UL with a li for each task
@@ -39,4 +39,6 @@ export default App;
 //--------
 //?implement submit button
 //?implement edit button 
+//Extra
+//todo Under education, add a + to add more majors
 

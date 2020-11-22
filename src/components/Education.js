@@ -53,7 +53,7 @@ class Education extends React.Component{
                         <label for="eduMajor" className="label">Major:</label>
                         <input id="eduMajor" name ="major" type="text" value={major} onChange={this.handleChange}/>
                         <label for="eduYear">Year Graduated:</label>
-                        <input id="eduYear"  name ="gradYear" type="text" value={gradYear} onChange={this.handleChange}/>
+                        <input id="eduYear"  name ="gradYear" type="date" value={gradYear} onChange={this.handleChange}/>
                         <input type="submit" task="Submit"></input>
                     </form>
                 </div>

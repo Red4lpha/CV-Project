@@ -22,7 +22,7 @@ class General extends React.Component {
         });    
     };
     handleSubmit(e){
-        console.log("handleSubmit hit");
+        console.log("General handleSubmit hit");
         this.setState({isSubmitted: true});
         e.preventDefault();
     };
