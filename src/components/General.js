@@ -12,6 +12,7 @@ class General extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     };
     handleChange(e){
         const value = e.target.value;
@@ -29,13 +30,18 @@ class General extends React.Component {
         this.setState({isSubmitted: true});
         e.preventDefault();
     };
+    handleEdit(e){
+        this.setState({isSubmitted: false});
+    }
 
     render(){
         const {fName, lName, email, phone, isSubmitted} = this.state;
         if(isSubmitted){
             return(
                 <div className="card general">
-                    Submitted worked!
+                    <h1> {fName} {lName} </h1>
+                    <p> {email} {phone} </p>
+                    <button onClick={this.handleEdit}>EDIT</button>
                 </div>
             )
         }
