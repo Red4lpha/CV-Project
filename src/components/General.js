@@ -40,7 +40,7 @@ class General extends React.Component {
                     <p> {phone} </p>
                     <button onClick={this.handleEdit}>EDIT</button>
                 </div>
-            )
+            );
         }
 
         if(!isSubmitted){

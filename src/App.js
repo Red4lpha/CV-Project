@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import './App.css';
+import Education from './components/Education';
 import General from './components/General';
 
 class App extends React.Component {
@@ -16,9 +17,7 @@ class App extends React.Component {
         </div>
         <div className="main">
           <General />
-          <div className="card education">
-            Education
-          </div>
+          <Education />
         </div>
       </div>
     );
