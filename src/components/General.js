@@ -23,10 +23,6 @@ class General extends React.Component {
     };
     handleSubmit(e){
         console.log("handleSubmit hit");
-        console.log("fname:" + this.state.fName);
-        console.log("lname:" + this.state.lName);
-        console.log("email:" + this.state.email);
-        console.log("num:" + this.state.phone);
         this.setState({isSubmitted: true});
         e.preventDefault();
     };
@@ -40,7 +36,8 @@ class General extends React.Component {
             return(
                 <div className="card general">
                     <h1> {fName} {lName} </h1>
-                    <p> {email} {phone} </p>
+                    <p> {email}</p>
+                    <p> {phone} </p>
                     <button onClick={this.handleEdit}>EDIT</button>
                 </div>
             )

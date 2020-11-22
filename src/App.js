@@ -29,7 +29,7 @@ export default App;
 
 //?basic page layout -header - general -education -experience - DONE
 //--------
-//todo General form name, email, phone number
+//?General form name, email, phone number - DONE
 //todo General form: add github url --extra
 //--------
 //todo Education form: School, Major, Years attended
@@ -38,6 +38,6 @@ export default App;
 //todo Experience form: Main tasks of job -- UL with a li for each task
   //todo implement add task button for each additional li
 //--------
-//todo implement submit button
-//todo implement edit button 
+//?implement submit button
+//?implement edit button 
 
