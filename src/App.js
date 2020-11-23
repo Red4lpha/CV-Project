@@ -38,6 +38,7 @@ export default App;
 //todo Experience form: Company name, position title, date
 //todo Experience form: Main tasks of job -- UL with a li for each task
 //todo implement add task button for each additional li
+//todo move the display render of experience to a new component, so multiple companies can be added
 //--------
 //?implement submit button
 //?implement edit button 
