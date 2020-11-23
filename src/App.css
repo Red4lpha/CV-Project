@@ -26,19 +26,17 @@
 }
 .general {
 }
-.genForm {
+.genForm, .eduForm, .expForm{
   display: grid;
   grid-template-columns: 20% 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 12px;
   padding: auto;
 }
+.genForm {
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
 .eduForm {
-  display: grid;
-  grid-template-columns: 20% 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 12px;
-  padding: auto;
 }
 
 label {

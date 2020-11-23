@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import './App.css';
 import Education from './components/Education';
+import Experience from './components/Experience';
 import General from './components/General';
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <div className="main">
           <General />
           <Education />
+          <Experience />
         </div>
       </div>
     );
@@ -35,7 +37,7 @@ export default App;
 //--------
 //todo Experience form: Company name, position title, date
 //todo Experience form: Main tasks of job -- UL with a li for each task
-  //todo implement add task button for each additional li
+//todo implement add task button for each additional li
 //--------
 //?implement submit button
 //?implement edit button 

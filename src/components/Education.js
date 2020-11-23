@@ -6,7 +6,7 @@ class Education extends React.Component{
         this.state = {
             school: "",
             major: "",
-            gradYear:"",
+            gradYear: "",
             isSubmitted: false,
         };
         this.handleChange = this.handleChange.bind(this);
