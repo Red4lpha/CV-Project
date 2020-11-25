@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 class Experience extends React.Component{
     constructor(){
@@ -7,13 +7,21 @@ class Experience extends React.Component{
             company: "",
             title: "",
             years: 0,
-            tasks: "",
+            tasks: [{
+                key: 0,
+                context: "",
+            },],
+            tempTask: [{
+                key: 0,
+                context: "",
+            },],
             isSubmitted: false,
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
         this.addTask = this.addTask.bind(this);
+        this.handleTasksChange = this.handleTasksChange.bind(this);
     };
     handleChange(e){
         const value = e.target.value;
@@ -22,6 +30,14 @@ class Experience extends React.Component{
             [e.target.name]: value
         }); 
     };
+    handleTasksChange(e){
+   /*      const i = e.target.name;
+        const value = e.target.value;
+        let tasks = [...this.state.tasks];
+        tasks[i] = {...tasks[i], key: i, context: value};
+        this.setState({ tasks }); */
+    };
+
     handleSubmit(e){
         console.log("Exp form submitted");
         this.setState({isSubmitted: true});
@@ -32,6 +48,11 @@ class Experience extends React.Component{
     };
     addTask(e){
         console.log("addTask clicked");
+        let tasks = [...this.state.tasks];
+        let i = tasks.length;
+        tasks[i] = {...tasks[i], key: i, context: ""};
+        this.setState({ tasks });
+        
         e.preventDefault();
     }
     render(){
@@ -60,8 +81,23 @@ class Experience extends React.Component{
                         <input id="expTitle" name ="title" type="text" value={title} onChange={this.handleChange}/>
                         <label for="expYears">Years of Experience:</label>
                         <input id="expYears"  name ="years" type="text" value={years} onChange={this.handleChange}/>
-                        <label for="expTasks"><button onClick={this.addTask}>+</button> Tasks:</label>
-                        <input id="expTasks"  name ="tasks" type="text" value={tasks} onChange={this.handleChange}/>
+                        
+                        {tasks.map((task) => {
+                            return (
+                                <Fragment>
+                                    <label for="expTasks{task.key}"><button onClick={this.addTask}>+</button> Tasks:</label>
+                                    
+                                    <input id="expTasks{task.key}"  
+                                    key={task.key}
+                                    name={task.key}
+                                    type="text" 
+                                    value={task.context} 
+                                    /* onChange={this.handleChange} */
+                                    />
+                               </Fragment>
+                            );
+                         })}
+                        
                         <input type="submit" task="Submit"></input>
                     </form>
                 </div>
