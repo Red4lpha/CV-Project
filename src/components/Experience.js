@@ -57,6 +57,13 @@ class Experience extends React.Component{
     }
     render(){
         const {company, title, years, tasks, isSubmitted} = this.state;
+        let button;
+        if (tasks.length === 1) {
+            button = <button onClick={this.addTask}>+</button>;
+        }
+        else {
+            button = <button onClick={this.addTask}>-</button>;
+        }
         
         if(isSubmitted){
             return(
@@ -85,7 +92,7 @@ class Experience extends React.Component{
                         {tasks.map((task) => {
                             return (
                                 <Fragment>
-                                    <label for="expTasks{task.key}"><button onClick={this.addTask}>+</button> Tasks:</label>
+                                    <label for="expTasks{task.key}">{button} Tasks:</label>
                                     
                                     <input id="expTasks{task.key}"  
                                     key={task.key}
