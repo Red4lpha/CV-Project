@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import ExpViewerButton from './ExpViewerButton';
 
 class ExpViewer extends React.Component {
     constructor(){
@@ -8,14 +9,11 @@ class ExpViewer extends React.Component {
             company: "",
             title: "",
             years: 0,
+            firstTask: "",
             tasks: [{
                 key: 0,
                 context: "",
-                /* button: {plusBtn}, */
-            },],
-            tempTask: [{
-                key: 0,
-                context: "",
+                button: true,
             },],
             isSubmitted: false,
         };
@@ -53,14 +51,15 @@ class ExpViewer extends React.Component {
         console.log("addTask clicked");
         let tasks = [...this.state.tasks];
         let i = tasks.length;
-        tasks[i] = {...tasks[i], key: i, context: ""};
+        tasks[i] = {...tasks[i], key: i, context: "", button: true};
+        tasks[i-1] = {...tasks[i-1], button: false};
         this.setState({ tasks });
         
         e.preventDefault();
     }
     
     render() {
-        const {company, title, years, tasks, isSubmitted} = this.state;
+        const {company, title, years, tasks, isSubmitted, firstTask} = this.state;
         
         /*         if(isSubmitted){
                     return(
@@ -82,25 +81,26 @@ class ExpViewer extends React.Component {
                     <label for="expCompany" className="label">Company:</label>
                     <input id="expCompany" name ="company" type="text" value={company} onChange={this.handleChange}/>
                     <label for="expTitle" className="label">Title:</label>
-                    <input id="expTitle" name ="title" type="text" value={title} onChange={null}/>
+                    <input id="expTitle" name ="title" type="text" value={title} onChange={this.handleChange}/>
                     <label for="expYears">Years of Experience:</label>
-                    <input id="expYears"  name ="years" type="text" value={years} onChange={null}/>
-                        {tasks.map((task) => {
-                            return (
-                                <Fragment>
-                                    <label for="expTasks{task.key}"> Tasks:</label>
-                                    
-                                    <input id="expTasks{task.key}"  
-                                    key={task.key}
-                                    name={task.key}
-                                    type="text" 
-                                    value={task.context} 
-                                    onChange={null}
-                                    />
-                                </Fragment>
-                            );
-                        })} 
-                    
+                    <input id="expYears"  name ="years" type="text" value={years} onChange={this.handleChange}/>
+                    <label for="firstTask"><button onClick={this.addTask}>+</button>Tasks:</label>
+                    <input id="firstTask"  name ="firstTask" type="text" value={firstTask} onChange={this.handleChange}/>
+                    {tasks.map((task) => {
+                        return (
+                            <Fragment>
+                                <label for="expTasks{task.key}"> 
+                                <ExpViewerButton task={task} />Tasks:</label>
+                                <input id="expTasks{task.key}"  
+                                key={task.key}
+                                name={task.key}
+                                type="text" 
+                                value={task.context} 
+                                onChange={null}
+                                />
+                            </Fragment>
+                        );
+                    })} 
                     <input type="submit" task="Submit"></input>
                 </form>
             </div>
