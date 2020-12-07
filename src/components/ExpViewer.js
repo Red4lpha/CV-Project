@@ -23,6 +23,7 @@ class ExpViewer extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.addTask = this.addTask.bind(this);
         this.handleTasksChange = this.handleTasksChange.bind(this);
+        this.deleteTask = this.deleteTask.bind(this);
     };
     handleChange(e){
         const value = e.target.value;
@@ -57,6 +58,18 @@ class ExpViewer extends React.Component {
         
         e.preventDefault();
     }
+    deleteTask(e){
+        let tasks = [...this.state.tasks];
+        let i = tasks.length;
+        if (i !== -1) {
+            tasks.pop();
+            tasks[i-2] = {...tasks[i-2], button: true};
+            this.setState( {tasks} );
+        }
+        console.log("length: " + i);
+        console.log("deleteTask clicked ");
+        e.preventDefault();
+    }
     
     render() {
         const {company, title, years, tasks, isSubmitted, firstTask} = this.state;
@@ -89,8 +102,9 @@ class ExpViewer extends React.Component {
                     {tasks.map((task) => {
                         return (
                             <Fragment>
-                                <label for="expTasks{task.key}"> 
-                                <ExpViewerButton task={task} />Tasks:</label>
+                                <label for="expTasks{task.key}" key={task.key}> 
+                                {/* <ExpViewerButton task={task} deleteTask={this.deleteTask}/>Tasks:</label> */}
+                                <ExpViewerButton task={task} onClick={this.deleteTask.bind(this)}/>Tasks:</label>
                                 <input id="expTasks{task.key}"  
                                 key={task.key}
                                 name={task.key}
@@ -108,4 +122,5 @@ class ExpViewer extends React.Component {
     };
 };
 
+/* this.deleteTask.bind(this) */
 export default ExpViewer;
